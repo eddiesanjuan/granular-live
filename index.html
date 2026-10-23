@@ -1673,16 +1673,18 @@ html.notes #notes { display: flex; flex-direction: column; position: fixed; inse
     var m = { i: idx, b: build, id: ME, t: Date.now() };
     if (bc) { try { bc.postMessage(m); } catch (e) {} }
     try { localStorage.setItem(KEY, JSON.stringify(m)); } catch (e) {}
-    if (typeof liveSend === 'function') { liveSend(); }
+    if (typeof liveSend === 'function') { liveSend(true); }
   }
 
 
   /* ---------- v1.5 live follow (phones follow the presenter) ---------- */
   var LIVE = { url: 'https://sxmhcpgihpedouhmyvnn.supabase.co', key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN4bWhjcGdpaHBlZG91aG15dm5uIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc1OTI1MjQsImV4cCI6MjA5MzE2ODUyNH0.Cm9i3R6RLRkS2KdI_abHYdU7e6IO7xjQLmQ3TqskDNU', channel: 'granular-retreat-live-q7k2', hash: '578500eeff0fdbfed2db22ca9734b58110fd1aca3ff13bbeb519d611bf891bb4' };
-  var liveCh = null, livePresenter = false, liveReady = false;
-  function liveSend() {
+  /* t is when this presenter last changed slides, so an idle presenter tab on another laptop never overrides the active one */
+  var liveCh = null, livePresenter = false, liveReady = false, liveAt = Date.now(), liveSeen = 0;
+  function liveSend(changed) {
     if (!livePresenter || !liveCh || !liveReady) { return; }
-    try { liveCh.send({ type: 'broadcast', event: 'slide', payload: { i: idx, b: build, id: ME, t: Date.now() } }); } catch (e) {}
+    if (changed) { liveAt = Date.now(); }
+    try { liveCh.send({ type: 'broadcast', event: 'slide', payload: { v: 2, i: idx, b: build, id: ME, t: liveAt } }); } catch (e) {}
   }
   function liveStart(isPresenter) {
     livePresenter = isPresenter;
@@ -1697,7 +1699,8 @@ html.notes #notes { display: flex; flex-direction: column; position: fixed; inse
       liveCh = client.channel(LIVE.channel, { config: { broadcast: { self: false } } });
       liveCh.on('broadcast', { event: 'slide' }, function (msg) {
         if (livePresenter) { return; }
-        var d = msg.payload; if (!d) { return; }
+        var d = msg.payload; if (!d || d.v !== 2 || d.t < liveSeen) { return; }
+        liveSeen = d.t;
         pill.textContent = 'Live';
         quiet = true; enter(Math.max(0, Math.min(slides.length - 1, d.i)), d.b || 0); quiet = false;
       });
@@ -1705,7 +1708,7 @@ html.notes #notes { display: flex; flex-direction: column; position: fixed; inse
         if (status === 'SUBSCRIBED') { liveReady = true; pill.textContent = isPresenter ? 'Presenting live' : 'Live'; liveSend(); }
         else if (status === 'CHANNEL_ERROR' || status === 'TIMED_OUT') { pill.textContent = 'Reconnecting'; }
       });
-      if (isPresenter) { setInterval(liveSend, 10000); }
+      if (isPresenter) { setInterval(function () { liveSend(false); }, 10000); }
     })();
   }
   (function liveInit() {
