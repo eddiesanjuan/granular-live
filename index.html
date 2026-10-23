@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Granular | AI in the practical world | October 23 retreat | v1.5, Oct 23</title>
+<title>Granular | AI in the practical world | October 23 retreat | v1.8, Oct 23</title>
 <meta name="robots" content="noindex, nofollow">
 <style>
 /* ============================================================================
@@ -104,6 +104,14 @@ img { display: block; }
 
 .head { position: absolute; left: var(--px); right: var(--px); top: 150px; }
 .head .lead { margin-top: 18px; max-width: 900px; }
+.roundtable-close .head { top: 151px; }
+.roundtable-close .head .h2 { font-size: 76px; line-height: 1.04; letter-spacing: -.04em; text-wrap: initial; }
+.roundtable-prompts { position: absolute; left: var(--px); right: var(--px); top: 459px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px; }
+.roundtable-prompt { border-top: 1px solid var(--line2); padding-top: 22px; }
+.roundtable-prompt .num { display: block; font: 14px var(--mono); color: var(--accent); letter-spacing: .06em; margin-bottom: 24px; }
+.roundtable-prompt h3 { font-size: 38px; line-height: 1.14; letter-spacing: -.025em; }
+.roundtable-reassurance { position: absolute; left: var(--px); right: var(--px); top: 747px; font-size: 31px; line-height: 1.3; letter-spacing: -.02em; color: var(--body); }
+.roundtable-reassurance strong { font-weight: 500; color: var(--accent); }
 .head-split { position: absolute; left: var(--px); right: var(--px); top: 150px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 90px; align-items: end; }
 
 /* ---------- motion ---------- */
@@ -761,7 +769,7 @@ html.notes #notes { display: flex; flex-direction: column; position: fixed; inse
     <div id="sheet-rows"></div>
     <div class="tail">And the next revision starts it all again.</div>
   </div>
-  
+
 </section>
 
 <!-- ============================ 11 CASE: BEFORE / AFTER (4 builds) ============================ -->
@@ -788,7 +796,7 @@ html.notes #notes { display: flex; flex-direction: column; position: fixed; inse
     <div class="bx" data-b="2"><i class="sq sq-ai"></i><p><b>AI</b><span>Reads drawings, sorts line items, flags what&rsquo;s stuck.</span></p></div>
     <div class="bx" data-b="2"><i class="sq sq-person"></i><p><b>Person</b><span>Assigns the work, sets prices, records the customer&rsquo;s yes.</span></p></div>
   </div>
-  
+
 </section>
 
 <!-- ============================ 12 CASE: THE SOFTWARE ============================ -->
@@ -1020,13 +1028,13 @@ html.notes #notes { display: flex; flex-direction: column; position: fixed; inse
 
 <!-- ============================ 20 AMBITION VS FIRST TEST ============================ -->
 <section class="s" data-sec="6">
-  <div class="head rv"><div class="kick"><span class="lbl">A sensible first move</span></div><h2 class="h2">Shrink the ambition. Keep the direction.</h2></div>
+  <div class="head rv"><div class="kick"><span class="lbl">A sensible first move</span></div><h2 class="h2">Keep the ambition. Shrink the first step.</h2></div>
   <div class="amb">
     <div class="hd rv"><span>Instead of</span><span>Start with</span></div>
     <ul>
-      <li class="rv"><div class="from"><span>Automate sales</span></div><div class="to"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 12.5L12.5 3.5M12.5 3.5H6M12.5 3.5V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Draft a quote from each request. A person approves price and terms.</div></li>
-      <li class="rv"><div class="from"><span>Replace our ERP</span></div><div class="to"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 12.5L12.5 3.5M12.5 3.5H6M12.5 3.5V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Catch missing order information before anyone re-keys it.</div></li>
-      <li class="rv"><div class="from"><span>Fix collections</span></div><div class="to"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 12.5L12.5 3.5M12.5 3.5H6M12.5 3.5V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Flag overdue invoices every Monday and draft the reminder. A person sends it.</div></li>
+      <li class="rv"><div class="from"><span>Automate sales</span></div><div class="to"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 12.5L12.5 3.5M12.5 3.5H6M12.5 3.5V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Find quotes that haven&rsquo;t had a reply in a week. Draft the follow-up.</div></li>
+      <li class="rv"><div class="from"><span>Automate reporting</span></div><div class="to"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 12.5L12.5 3.5M12.5 3.5H6M12.5 3.5V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Turn the team&rsquo;s weekly updates into one summary of what&rsquo;s late and what needs a decision.</div></li>
+      <li class="rv"><div class="from"><span>Automate accounting</span></div><div class="to"><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 12.5L12.5 3.5M12.5 3.5H6M12.5 3.5V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Compare supplier invoices with purchase orders. Flag prices or quantities that don&rsquo;t match.</div></li>
     </ul>
   </div>
 </section>
@@ -1043,39 +1051,15 @@ html.notes #notes { display: flex; flex-direction: column; position: fixed; inse
   <div class="measure rv"><span class="mono">One measure</span>Turnaround, capacity or errors. Write down today&rsquo;s number before you start.</div>
 </section>
 
-<!-- ============================ 22 RECAP ============================ -->
-<section class="s" data-sec="7">
-  <div class="head rv"><div class="kick"><span class="lbl">Into the roundtable</span></div><h2 class="h2">Take one process with you.</h2></div>
-  <div class="recap">
-    <div class="rc rv"><span class="n">01</span><h3 class="h4">One process</h3><p class="sm">Recurring, and named specifically.</p>
-      <svg class="ra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14"/><path d="M13 7l5 5-5 5"/></svg></div>
-    <div class="rc rv"><span class="n">02</span><h3 class="h4">Where it gets stuck</h3><p class="sm">Waiting, retyping, dropped handoffs or searching.</p>
-      <svg class="ra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14"/><path d="M13 7l5 5-5 5"/></svg></div>
-    <div class="rc rv"><span class="n">03</span><h3 class="h4">Who knows it best</h3><p class="sm">The person who runs it, not the org chart.</p>
-      <svg class="ra" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14"/><path d="M13 7l5 5-5 5"/></svg></div>
-    <div class="rc last rv"><span class="n">04</span><h3 class="h4">A first test</h3><p class="sm">Small, measurable, tried on finished work.</p></div>
+<!-- ============================ 25 ROUNDTABLE HANDOFF ============================ -->
+<section class="s roundtable-close" data-sec="7">
+  <div class="head rv"><div class="kick"><span class="lbl ac">Next: roundtables</span></div><h2 class="h2">Bring one real bottleneck<br>to your table.</h2></div>
+  <div class="roundtable-prompts">
+    <div class="roundtable-prompt rv"><span class="num">01</span><h3>What task would you like to make easier?</h3></div>
+    <div class="roundtable-prompt rv"><span class="num">02</span><h3>Where does it get stuck today?</h3></div>
+    <div class="roundtable-prompt rv"><span class="num">03</span><h3>Who does that work every day?</h3></div>
   </div>
-  <p class="final rv">Understand the real work. <span>Find where it gets stuck.</span> Give each step the right help. <span>Prove it before you expand it.</span></p>
-</section>
-
-<!-- ============================ 23 CLOSE ============================ -->
-<section class="s" data-sec="7">
-  <canvas class="wave low"></canvas>
-  <div class="kick-abs rv"><span class="lbl ac">Next: roundtables</span></div>
-  <div class="ctiles">
-    <div class="tl acc rv">
-      <div class="top"><span>Bring this to your table</span><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 12.5L12.5 3.5M12.5 3.5H6M12.5 3.5V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <p class="h3">Which process would you improve, where does it get stuck, and who knows it best?</p>
-    </div>
-    <div class="tl ink rv">
-      <div class="top"><span>Remember this</span><svg viewBox="0 0 16 16" fill="none"><path d="M3.5 12.5L12.5 3.5M12.5 3.5H6M12.5 3.5V10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <p class="h3">Your best people should spend their day on the human steps.</p>
-    </div>
-  </div>
-  <div class="cmention rv">
-    <p class="p">We map the work with you, pick the first improvement, then build it or coach your team through it.</p>
-    <p class="mono">granular.to</p>
-  </div>
+  <p class="roundtable-reassurance rv"><strong>No solution needed.</strong> We&rsquo;ll explore a first step together.</p>
 </section>
 
   <section class="s" data-sec="7">
@@ -1264,12 +1248,14 @@ html.notes #notes { display: flex; flex-direction: column; position: fixed; inse
   </ol>
 </article>
 
-<article class="nc" data-title="Shrink the ambition" data-part="6 &middot; First move">
-  <div class="for"><span>What this beat is for</span>Make &ldquo;start small&rdquo; concrete.</div>
+<article class="nc" data-title="Keep the ambition. Shrink the first step." data-part="6 &middot; First move">
+  <div class="for"><span>What this beat is for</span>Keep the business goal big, but make the first test one familiar, recurring job.</div>
   <ol>
-    <li><b>1</b><div><p class="l">Big goals stall.</p><p class="c">Automate sales, replace the ERP, fix collections. None of those has a first step.</p></div></li>
-    <li><b>2</b><div><p class="l">Each right-hand item can be tested in weeks.</p><p class="c">And each one has a person approving the part that counts.</p></div></li>
+    <li><b>1</b><div><p class="l">One recognizable job, not an entire department.</p><p class="c">Sales: find quotes with no reply in a week and draft a follow-up. Reporting: turn weekly team updates into a summary of delays and decisions. Accounting: compare supplier invoices with purchase orders and flag price or quantity mismatches.</p></div></li>
+    <li><b>2</b><div><p class="l">A follow-up email. A weekly summary. A list of discrepancies.</p><p class="c">Those are outputs people can picture and check against the original records. These are illustrative first tests, not promises to automate the whole department.</p></div></li>
+    <li><b>3</b><div><p class="l">A person still approves what counts.</p><p class="c">Review the email before sending, verify the summary before using it, and investigate invoice discrepancies before changing records or paying. The next slide explains how to test safely.</p></div></li>
   </ol>
+  <div class="say"><span>Line out</span>&ldquo;Don&rsquo;t start with &lsquo;automate my department.&rsquo; Start with one job someone repeats every week. Then prove it before you trust it.&rdquo;</div>
 </article>
 
 <article class="nc" data-title="Prove it before you trust it" data-part="6 &middot; First move">
@@ -1281,21 +1267,15 @@ html.notes #notes { display: flex; flex-direction: column; position: fixed; inse
   <div class="say"><span>Line out</span>&ldquo;Take one candidate process into the next conversation. You don&rsquo;t need a finished solution yet.&rdquo;</div>
 </article>
 
-<article class="nc" data-title="Take one process with you" data-part="7 &middot; Close &middot; 3 min">
-  <div class="for"><span>What this beat is for</span>The whole hour in four boxes and one sentence.</div>
+<article class="nc" data-title="Bring one real bottleneck to your table" data-part="7 &middot; Roundtables">
+  <div class="for"><span>What this beat is for</span>One clear handoff, not another recap. Leave this slide up while people move to their tables.</div>
   <ol>
-    <li><b>1</b><div><p class="l">Read the four boxes.</p><p class="c">Process, where it&rsquo;s stuck, who knows it, a first test.</p></div></li>
-    <li><b>2</b><div><p class="l">Say the final line.</p><p class="c">Understand the real work, find where it gets stuck, give each step the right help, prove it before expanding.</p></div></li>
+    <li><b>1</b><div><p class="l">Bring a recurring job, not a finished solution.</p><p class="c">Think of something your team does repeatedly that takes more effort than it should. What is it, where does it get stuck, and who does it every day?</p></div></li>
+    <li><b>2</b><div><p class="l">Reuse the quote-follow-up example if needed.</p><p class="c">The task is following up on quotes. The sticking point is remembering what is still waiting in an inbox. The person who knows it is the salesperson or coordinator doing it. Use the table discussion to explore a first step; attendees do not need a test designed in advance.</p></div></li>
+    <li><b>3</b><div><p class="l">Close with the people, not another pitch.</p><p class="c">Your best people should spend their day on the human steps. We map the work with you, pick the first improvement, then build it or coach your team through it. Keep this spoken and brief.</p></div></li>
   </ol>
-</article>
-
-<article class="nc" data-title="Next: roundtables" data-part="7 &middot; Close">
-  <div class="for"><span>What this beat is for</span>Hand off to the tables. Leave this up during the transition.</div>
-  <ol>
-    <li><b>1</b><div><p class="l">The orange tile is the table prompt.</p><p class="c">Which process, where it gets stuck, who knows it best.</p></div></li>
-    <li><b>2</b><div><p class="l">No pitch.</p><p class="c">One sentence on what Granular does, then go to the tables.</p></div></li>
-  </ol>
-  <div class="need"><span>Before the 23rd</span>Confirm the roundtable format with the organizers, and whether a printed card goes on each table.</div>
+  <div class="say"><span>Line out</span>&ldquo;You don&rsquo;t need a solution. Bring the problem, and we&rsquo;ll explore a first step together.&rdquo;</div>
+  <div class="need"><span>Before presenting</span>Confirm the roundtable format with the organizers. The interview QR on the next slide is a separate follow-up; show it after the roundtables.</div>
 </article>
 
   <article class="nc" data-title="The interview is still open" data-part="7 &middot; Close">
